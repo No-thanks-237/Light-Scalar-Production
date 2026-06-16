@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+.vscode/
+.idea/
+.claude/
+*.pdf
+output/*.png
