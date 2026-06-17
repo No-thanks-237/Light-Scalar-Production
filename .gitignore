@@ -4,5 +4,4 @@ __pycache__/
 .vscode/
 .idea/
 .claude/
-*.pdf
-output/*.png
+.document/
