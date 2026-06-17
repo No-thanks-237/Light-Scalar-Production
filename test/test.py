@@ -7,7 +7,7 @@ import os
 import csv
 import numpy as np
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from physics.production import total_production
 
 
@@ -46,12 +46,12 @@ if __name__ == '__main__':
     # 1. 固定 tanb 扫描 m_H
     print("[1] Scanning m_H at fixed tanb ...")
     for tb in [10, 100, 1000]:
-        save_csv(scan_mH(tb, mH_min=0.1, mH_max=5.0, n_points=50), f"output/scan_mH_tanb{tb:.0f}.csv")
+        save_csv(scan_mH(tb, mH_min=0.1, mH_max=5.0, n_points=50), f"test/output1/scan_mH_tanb{tb:.0f}.csv")
 
     # 2. 固定 m_H 扫描 tanb
     print("[2] Scanning tanb at fixed m_H ...")
     for mH in [0.1, 1.0, 2.0]:
-        save_csv(scan_tbeta(mH, tbeta_min=1.0, tbeta_max=1e4, n_points=60), f"output/scan_tbeta_mH{mH:.1f}.csv")
+        save_csv(scan_tbeta(mH, tbeta_min=1.0, tbeta_max=1e4, n_points=60), f"test/output1/scan_tbeta_mH{mH:.1f}.csv")
 
     # 3. 双标量产生 (对照 Figure 8)
     print("[3] Double scalar channels ...")
@@ -59,13 +59,13 @@ if __name__ == '__main__':
     for mH in np.linspace(0.05, 2.6, 50):
         r = total_production(mH, 10)
         results_b.append({'m_H': mH, 'Br_B_Xs_HH': r['Br_B_Xs_HH']})
-    save_csv(results_b, "output/double_B_Xs_HH.csv")
+    save_csv(results_b, "test/output1/double_B_Xs_HH.csv")
 
     results_k = []
     for mH in np.linspace(0.01, 0.2, 50):
         r = total_production(mH, 10)
         results_k.append({'m_H': mH, 'Br_K_pi_HH': r['Br_K_pi_HH']})
-    save_csv(results_k, "output/double_K_pi_HH.csv")
+    save_csv(results_k, "test/output1/double_K_pi_HH.csv")
 
     # 4. Benchmark 校验
     print("[4] Benchmark:")
