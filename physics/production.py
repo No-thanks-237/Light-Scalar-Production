@@ -15,7 +15,7 @@ def Br_B_Xs_H(mH, tanb):
     f_ps = U.phase_space_f(C.m_c ** 2 / C.m_b ** 2)
 
     ratio = (12.0 * np.pi ** 2 * C.v ** 2 / C.m_b ** 2) \
-            * (1.0 - mH ** 2 / C.m_b ** 2) ** 2 \
+            * (1.0 - mH ** 2 / C.m_B ** 2) ** 2 \
             * (1.0 / f_ps) \
             * abs(xi_bs / C.V_cb) ** 2
     return C.Br_B_Xc_e_nu * ratio
